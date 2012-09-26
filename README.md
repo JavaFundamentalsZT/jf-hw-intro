@@ -70,3 +70,11 @@ mvn clean
 
 and then ZIP the project folder and send it our way. Please include the toplevel folder for easier unpacking!
 
+Let me bring an example if you happen to be friendly with your shell
+
+```bash
+cd jf-skeleton
+mvn clean
+zip -r ../jf-skeleton.zip *
+```
+and now you send jf-skeleton.zip to *jf@zeroturnaround.com*.
