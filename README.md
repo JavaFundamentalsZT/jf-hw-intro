@@ -26,7 +26,7 @@ This builds and executes the project. The results are from the dummy source code
 steps to start your application when you email your archive. We will use *mvn install* and then *java -jar*
 to start your application.
 
-Working on your assignment
+Assignment structure
 --------------------------
 
 The project has a source folder *src/main/java/ee/ut/jf2012/*. The sample is based on the first homework and
@@ -34,4 +34,38 @@ also specifies a subfolder called *hw1*. This should change depending on your as
 
 The project also has a folder for tests. See *test/java/ee/ut/jf2012*. The sample is based on the first homework
 and also specifies a folder *hw1*. This should change depending on your assignment.
+
+Using Eclipse
+-------------
+
+If you are an Eclipse user then you can import the project to your workspace. The project comes with the *.project*
+and *.classpath* files and is easy to import. *File* - *Import* - *Existing Maven Projects*.
+
+To run the project in Eclipse you should ..... oh wait! You are already familiar with your IDE and I'm not
+supposed to explain this!
+
+Using the commandline
+---------------------
+
+Once you have downloaded the project and you want to run the main class you can do the following
+
+```shell
+cd jf-skeleton
+mvn install
+java -jar target/jf2012-executable.jar
+```
+
+Now you can edit your homework and rerun the sample.
+
+Submitting your assignment
+--------------------------
+
+We are interested in your homework as *ZIP* archive (we are not fond of RAR, gzip, TAR etc.). We are not interested
+in the binary artifacts either. So the easiest is to run the following command in your project folder:
+
+```
+mvn clean
+```
+
+and then ZIP the project folder and send it our way. Please include the toplevel folder for easier unpacking!
 
