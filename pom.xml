@@ -37,7 +37,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>ee.ut.jf2012.hw1.Main</mainClass>
+              <mainClass>ee.ut.jf2012.Main</mainClass>
             </manifest>
           </archive>
           <finalName>jf2012-executable</finalName>
