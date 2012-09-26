@@ -14,8 +14,13 @@ public class HWTests extends TestCase {
     return new TestSuite(HWTests.class);
   }
 
-  public void testApp() {
+  public void testSquare() {
     HW hw = new HW();
     assertEquals(16, hw.square(4));
+  }
+  
+  public void testReverse() {
+    HW hw = new HW();
+    assertEquals("Input", hw.reverse("tupnI"));
   }
 }
