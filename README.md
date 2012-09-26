@@ -21,8 +21,8 @@ mvn install
 java -jar target/jf2012-executable.jar
 ```
 
-This builds and executes the project. The results are from the dummy source code in the project. We will be using the same
-steps to start your application when you email your archive. We will use *mvn install* and then *java -jar*
+This builds and executes the project. The current project will print the number 16 (just an example). When we check your
+homework we will be using the very same steps! We will use *mvn install* to build your project and then *java -jar*
 to start your application.
 
 Assignment structure
