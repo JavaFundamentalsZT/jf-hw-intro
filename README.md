@@ -12,8 +12,7 @@ java -jar target/jf2012-executable.jar
 Getting Started
 ---------------
 
-Start off by downloading this repository ([quick ZIP archive link](https://github.com/toomasr/jf-skeleton/zipball/master)).
-
+Start off by downloading this repository ([quick ZIP archive link](https://github.com/toomasr/jf-skeleton/zipball/master)). 
 Once you have the archive we will use Maven to build the project.
 
 ```shell
