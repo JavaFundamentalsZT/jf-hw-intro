@@ -2,7 +2,8 @@ Java Fundamentals - Project Skeleton
 ===========
 
 The project is intended for the Java Fundamentals class as a skeleton project. It is a [Maven](http://maven.apache.org/)
-project with a dependency on [Apache Commons Lang](http://commons.apache.org/lang/) and produces a single JAR file that can be executed via
+project with a dependency on [Apache Commons Lang](http://commons.apache.org/lang/) and it produces a single
+JAR file that can be executed via
 
 ```shell
 java -jar target/jf2012-executable.jar
@@ -11,8 +12,7 @@ java -jar target/jf2012-executable.jar
 Getting Started
 ---------------
 
-Start off by downloading this repository, you download this as a
-[ZIP Archive](https://github.com/toomasr/jf-skeleton/zipball/master) for example.
+Start off by downloading this repository ([quick ZIP archive link](https://github.com/toomasr/jf-skeleton/zipball/master)).
 
 Once you have the archive we will use Maven to build the project.
 
