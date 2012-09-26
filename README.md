@@ -29,10 +29,10 @@ Assignment structure
 --------------------------
 
 The project has a source folder *src/main/java/ee/ut/jf2012/*. The sample is based on the first homework and
-also specifies a subfolder called *hw1*. This should change depending on your assignment.
+also specifies a subfolder called *hw1*. You should change this depending on your assignment.
 
 The project also has a folder for tests. See *test/java/ee/ut/jf2012*. The sample is based on the first homework
-and also specifies a folder *hw1*. This should change depending on your assignment.
+and also specifies a folder *hw1*. You should change this depending on your assignment.
 
 Using Eclipse
 -------------
