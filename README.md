@@ -55,7 +55,8 @@ mvn install
 java -jar target/jf2012-executable.jar
 ```
 
-Now you can edit your homework and rerun the sample.
+Now you can edit your homework and rerun the sample. The *pom.xml* instructs the *jf2012-executable.jar* to execute
+the *ee.ut.jf2012.Main* class by default. If you want to use some other class then you also need to update the *pom.xml*.
 
 Submitting your assignment
 --------------------------
