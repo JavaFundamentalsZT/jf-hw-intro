@@ -34,6 +34,7 @@
               <mainClass>ee.ut.jf2012.hw1.Main</mainClass>
             </manifest>
           </archive>
+          <finalName>jf2012-executable</finalName>
         </configuration>
       </plugin>
     </plugins>
