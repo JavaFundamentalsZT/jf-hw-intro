@@ -74,6 +74,6 @@ Let me bring an example if you happen to be friendly with your shell
 ```bash
 cd jf-skeleton
 mvn clean
-zip -r ../jf-skeleton.zip *
+zip -r jf-skeleton.zip jf-skeleton
 ```
 and now you send jf-skeleton.zip to *jf@zeroturnaround.com*.
