@@ -1,4 +1,4 @@
-package ee.ut.jf2012.hw1;
+package ee.ut.jf2013.hw1;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
