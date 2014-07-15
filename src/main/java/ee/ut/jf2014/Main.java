@@ -1,6 +1,6 @@
-package ee.ut.jf2013;
+package ee.ut.jf2014;
 
-import ee.ut.jf2013.homework1.Homework;
+import ee.ut.jf2014.homework1.Homework;
 
 public class Main {
     public static void main(String[] args) {

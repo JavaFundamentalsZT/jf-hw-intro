@@ -1,4 +1,4 @@
-package ee.ut.jf2013.homework1;
+package ee.ut.jf2014.homework1;
 
 import org.apache.commons.lang.StringUtils;
 
