@@ -61,35 +61,41 @@ Submitting your assignment automatically
 --------------------------
 
 We have set up the Maven project to submit the homework for you, automatically. It will ZIP up all files in your project
-folder and will send an e-mail to *jf@zeroturnaround.com* with the ZIP file as attachment. For sending, it will use
-GMail (everyone has @gmail address, right?).
+folder and will send an e-mail to *jf@zeroturnaround.com* with the ZIP file as attachment. For sending, it can use either
+your @ut.ee e-mail account or GMail.
 
-It is really simple, just run the following command in your project folder:
+It is really simple, just run one of the following commands in your project folder.
+
+##### In case of @ut.ee account:
 
 ```
-mvn clean deploy
+mvn clean deploy -Djavax.net.ssl.trustStorePassword=whatever -Djavax.net.ssl.trustStore=sk-ee.pks -P ut
+```
+(the *trustStore* parameters are needed due to the fact that *mailhost.ut.ee* certificate is signed by
+*sk.ee* root certificate which is not included with Java)
+
+##### In case of @gmail.com account:
+
+```
+mvn clean deploy -P gmail
 ```
 
-It will ask you for your full GMail username (e.g. yourhandle@gmail.com), password and homework topic.
+It will ask you for your account username, password and homework topic.
 
 Example:
 
 ```bash
-mvn clean deploy
+mvn clean deploy -Djavax.net.ssl.trustStore=sk-ee.pks -Djavax.net.ssl.trustStorePassword=whatever -P ut
 
-#...skipping building and testing output from Maven...
+#...skipping building, testing and packaging output from Maven...
 
-[INFO] --- maven-assembly-plugin:2.4.1:single (make a zip) @ jf2014-hwX ---
-[INFO] Reading assembly descriptor: build-zip.xml
-[INFO] Building zip: /Users/neeme/Workspaces/ZT/jf-skeleton/target/jf-skeleton-project.zip
-[INFO]
 [INFO] --- maven-antrun-plugin:1.7:run (get mail username and password) @ jf2014-hwX ---
 [INFO] Executing tasks
 
 main:
-Enter your e-mail address (e.g. yourhandle@gmail.com):
-myname@gmail.com
-Enter your e-mail account password:
+Enter your @ut.ee account login:
+myusername
+Enter your @ut.ee account password:
 Homework topic:
 IO
 [INFO] Executed tasks
@@ -100,14 +106,14 @@ IO
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 35.055s
-[INFO] Finished at: Wed Aug 27 17:12:51 EEST 2014
-[INFO] Final Memory: 27M/120M
+[INFO] Total time: 18.111s
+[INFO] Finished at: Wed Aug 27 18:22:54 EEST 2014
+[INFO] Final Memory: 26M/125M
 [INFO] ------------------------------------------------------------------------
 ```
 
-*Note:* Your GMail account and password are only used for sending the e-mail via Google SMTP server
-and not stored anywhere. Paranoid people can check out the source code of the Maven plugin here:
+*Note:* Your e-mail account and password are only used for sending the e-mail via respective SMTP server
+(encrypted channel) and not stored anywhere. Paranoid people can check out the source code of the Maven plugin here:
 https://code.google.com/p/fortysix/
 
 Submitting your assignment manually
