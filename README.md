@@ -69,7 +69,7 @@ It is really simple, just run one of the following commands in your project fold
 ##### In case of @ut.ee account:
 
 ```
-mvn clean deploy -Djavax.net.ssl.trustStorePassword=whatever -Djavax.net.ssl.trustStore=sk-ee.pks -P ut
+mvn clean deploy -Djavax.net.ssl.trustStore=sk-ee.pks -Djavax.net.ssl.trustStorePassword=whatever -P ut
 ```
 (the *trustStore* parameters are needed due to the fact that *mailhost.ut.ee* certificate is signed by
 *sk.ee* root certificate which is not included with Java)
