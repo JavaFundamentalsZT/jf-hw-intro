@@ -29,6 +29,7 @@
   </dependencies>
 
   <build>
+    <finalName>jf-skeleton</finalName>
     <plugins>
       <!-- Be sure to have a correct Main class specified here -->
       <plugin>
@@ -68,6 +69,107 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <descriptors>
+            <descriptor>build-zip.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make a zip</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>get mail username and password</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>deploy</phase>
+            <configuration>
+              <target>
+                <input
+                  message="Enter your e-mail address (e.g. yourhandle@gmail.com): "
+                  addproperty="email-address" />
+                <input message="Enter your e-mail account password: "
+                  addproperty="email-password">
+                  <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
+                </input>
+                <input message="Homework topic: " addproperty="homework-topic" />
+              </target>
+              <exportAntProperties>true</exportAntProperties>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.8.4</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>ch.fortysix</groupId>
+        <artifactId>maven-postman-plugin</artifactId>
+        <version>0.1.6</version>
+        <executions>
+          <execution>
+            <id>send a mail via gmail</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>send-mail</goal>
+            </goals>
+            <inherited>false</inherited>
+            <configuration>
+              <from>${email-address}</from>
+              <subject>JF homework - ${homework-topic}</subject>
+              <failonerror>true</failonerror>
+              <!--mailhost>mailhost.ut.ee</mailhost -->
+              <mailhost>smtp.gmail.com</mailhost>
+              <mailport>465</mailport>
+              <mailssl>true</mailssl>
+              <mailAltConfig>true</mailAltConfig><!-- "mailAltConfig" needs to be "true" for GMail -->
+              <mailuser>${email-address}</mailuser>
+              <mailpassword>${email-password}</mailpassword>
+              <htmlMessage>&lt;p>See attachment.&lt;p></htmlMessage>
+              <receivers>
+                <receiver>jf@zeroturnaround.com</receiver>
+              </receivers>
+              <fileSets>
+                <fileSet>
+                  <directory>${basedir}/target</directory>
+                  <includes>
+                    <include>*.zip</include>
+                  </includes>
+                </fileSet>
+              </fileSets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+              <skip>true</skip>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>

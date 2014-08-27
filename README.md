@@ -57,24 +57,69 @@ java -jar target/jf2014-executable.jar
 Now you can edit your homework and rerun the sample. The *pom.xml* instructs the *jf2014-executable.jar* to execute
 the *ee.ut.jf2014.Main* class by default. If you want to use some other class then you also need to update the *pom.xml*.
 
-Submitting your assignment
+Submitting your assignment automatically
 --------------------------
 
-We are interested in your homework as *ZIP* archive (we are not fond of RAR, gzip, TAR etc.). We are not interested
-in the binary artifacts either. So the easiest is to run the following command in your project folder:
+We have set up the Maven project to submit the homework for you, automatically. It will ZIP up all files in your project
+folder and will send an e-mail to *jf@zeroturnaround.com* with the ZIP file as attachment. For sending, it will use
+GMail (everyone has @gmail address, right?).
+
+It is really simple, just run the following command in your project folder:
 
 ```
-mvn clean
+mvn clean deploy
 ```
 
-and then ZIP the project folder and send it our way. Please include the toplevel folder for easier unpacking!
+It will ask you for your full GMail username (e.g. yourhandle@gmail.com), password and homework topic.
 
-Let me bring an example if you happen to be friendly with your shell
+Example:
 
 ```bash
-cd jf-skeleton
-mvn clean
-cd ..
-zip -r jf-skeleton.zip jf-skeleton
+mvn clean deploy
+
+#...skipping building and testing output from Maven...
+
+[INFO] --- maven-assembly-plugin:2.4.1:single (make a zip) @ jf2014-hwX ---
+[INFO] Reading assembly descriptor: build-zip.xml
+[INFO] Building zip: /Users/neeme/Workspaces/ZT/jf-skeleton/target/jf-skeleton-project.zip
+[INFO]
+[INFO] --- maven-antrun-plugin:1.7:run (get mail username and password) @ jf2014-hwX ---
+[INFO] Executing tasks
+
+main:
+Enter your e-mail address (e.g. yourhandle@gmail.com):
+nemecec@gmail.com
+Enter your e-mail account password:
+Homework topic:
+IO
+[INFO] Executed tasks
+[INFO]
+[INFO] --- maven-postman-plugin:0.1.6:send-mail (send a mail via gmail) @ jf2014-hwX ---
+[INFO] add attachment /Users/neeme/Workspaces/ZT/jf-skeleton/target/jf-skeleton-project.zip
+[INFO] configure SSL connection for mail
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 35.055s
+[INFO] Finished at: Wed Aug 27 17:12:51 EEST 2014
+[INFO] Final Memory: 27M/120M
+[INFO] ------------------------------------------------------------------------
 ```
-and now you send jf-skeleton.zip to *jf@zeroturnaround.com*.
+
+*Note:* Your GMail account and password are only used for sending the e-mail via Google SMTP server
+and not stored anywhere. Paranoid people can check out the source code of the Maven plugin here:
+https://code.google.com/p/fortysix/
+
+Submitting your assignment manually
+--------------------------
+
+In case you do not like the automated option outlined above, you can also submit your homework manually.
+As we are still interested in your homework as *ZIP* archive, you will need to execute the following command
+in your project folder:
+
+```
+mvn clean package
+```
+
+Maven will build the ZIP file for you -- you can find the generated ZIP file in *target* folder with name 
+*jf-skeleton-project.zip*. Attach it to an e-mail and send it our way, to *jf@zeroturnaround.com*.
