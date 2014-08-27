@@ -88,7 +88,7 @@ mvn clean deploy
 
 main:
 Enter your e-mail address (e.g. yourhandle@gmail.com):
-nemecec@gmail.com
+myname@gmail.com
 Enter your e-mail account password:
 Homework topic:
 IO
