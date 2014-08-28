@@ -29,7 +29,6 @@
   </dependencies>
 
   <build>
-    <finalName>jf-skeleton</finalName>
     <plugins>
       <!-- Be sure to have a correct Main class specified here -->
       <plugin>
@@ -70,22 +69,40 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.4.1</version>
-        <configuration>
-          <descriptors>
-            <descriptor>build-zip.xml</descriptor>
-          </descriptors>
-        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
         <executions>
           <execution>
-            <id>make a zip</id>
-            <phase>package</phase>
+            <id>package homework ZIP</id>
             <goals>
-              <goal>single</goal>
+              <goal>run</goal>
             </goals>
+            <phase>deploy</phase>
+            <configuration>
+              <target>
+                <input message="Your full name (e.g. John Smith): "                        addproperty="full-name" />
+                <input message="Your Student Book Number (matrikli number, e.g. B12345): " addproperty="sbn" />
+                <input message="Homework number: "                            addproperty="homework-number" />
+                <input message="Comment: "                                    addproperty="comment" />
+                <echo file="homework.properties" append="false">full-name=${full-name}${line.separator}sbn=${sbn}${line.separator}homework-number=${homework-number}${line.separator}comment=${comment}
+                </echo>
+                <basename property="build-directory-name" file="${project.build.directory}"/>
+                <zip destfile="${project.build.directory}/jf-howework-${sbn}-${homework-number}.zip">
+                  <zipfileset dir="." prefix="jf-howework" excludes="${build-directory-name}/**,dependency-reduced-pom.xml,.settings/**"/>
+                </zip>
+                <delete file="homework.properties"/>
+              </target>
+            </configuration>
           </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.8.4</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
     <pluginManagement>
@@ -99,164 +116,4 @@
       </plugins>
     </pluginManagement>
   </build>
-  <profiles>
-    <profile>
-      <id>gmail</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-              <execution>
-                <id>get mail username and password</id>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-                <phase>deploy</phase>
-                <configuration>
-                  <target>
-                    <input
-                      message="Enter your GMail account login: "
-                      addproperty="email-username" />
-                    <input message="Enter your GMail account password: "
-                      addproperty="email-password">
-                      <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
-                    </input>
-                    <input message="Homework topic: " addproperty="homework-topic" />
-                  </target>
-                  <exportAntProperties>true</exportAntProperties>
-                </configuration>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.apache.ant</groupId>
-                <artifactId>ant</artifactId>
-                <version>1.8.4</version>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <plugin>
-            <groupId>ch.fortysix</groupId>
-            <artifactId>maven-postman-plugin</artifactId>
-            <version>0.1.6</version>
-            <executions>
-              <execution>
-                <id>send a mail via gmail</id>
-                <phase>deploy</phase>
-                <goals>
-                  <goal>send-mail</goal>
-                </goals>
-                <inherited>false</inherited>
-                <configuration>
-                  <from>${email-username}@gmail.com</from>
-                  <subject>JF homework - ${homework-topic}</subject>
-                  <failonerror>true</failonerror>
-                  <mailhost>smtp.gmail.com</mailhost>
-                  <mailport>465</mailport>
-                  <mailssl>true</mailssl>
-                  <mailAltConfig>true</mailAltConfig>
-                  <mailuser>${email-username}@gmail.com</mailuser>
-                  <mailpassword>${email-password}</mailpassword>
-                  <htmlMessage>&lt;p>See attachment.&lt;p></htmlMessage>
-                  <receivers>
-                    <receiver>jf@zeroturnaround.com</receiver>
-                  </receivers>
-                  <fileSets>
-                    <fileSet>
-                      <directory>${basedir}/target</directory>
-                      <includes>
-                        <include>*.zip</include>
-                      </includes>
-                    </fileSet>
-                  </fileSets>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>ut</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-              <execution>
-                <id>get mail username and password</id>
-                <goals>
-                  <goal>run</goal>
-                </goals>
-                <phase>deploy</phase>
-                <configuration>
-                  <target>
-                    <input
-                      message="Enter your @ut.ee account login: "
-                      addproperty="email-username" />
-                    <input message="Enter your @ut.ee account password: "
-                      addproperty="email-password">
-                      <handler classname="org.apache.tools.ant.input.SecureInputHandler" />
-                    </input>
-                    <input message="Homework topic: " addproperty="homework-topic" />
-                  </target>
-                  <exportAntProperties>true</exportAntProperties>
-                </configuration>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>org.apache.ant</groupId>
-                <artifactId>ant</artifactId>
-                <version>1.8.4</version>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <plugin>
-            <groupId>ch.fortysix</groupId>
-            <artifactId>maven-postman-plugin</artifactId>
-            <version>0.1.6</version>
-            <executions>
-              <execution>
-                <id>send a mail via gmail</id>
-                <phase>deploy</phase>
-                <goals>
-                  <goal>send-mail</goal>
-                </goals>
-                <inherited>false</inherited>
-                <configuration>
-                  <from>${email-username}@ut.ee</from>
-                  <subject>JF homework - ${homework-topic}</subject>
-                  <failonerror>true</failonerror>
-                  <mailhost>mailhost.ut.ee</mailhost>
-                  <mailport>465</mailport>
-                  <mailssl>true</mailssl>
-                  <mailAltConfig>true</mailAltConfig>
-                  <mailuser>${email-username}</mailuser>
-                  <mailpassword>${email-password}</mailpassword>
-                  <htmlMessage>&lt;p>See attachment.&lt;p></htmlMessage>
-                  <receivers>
-                    <receiver>jf@zeroturnaround.com</receiver>
-                  </receivers>
-                  <fileSets>
-                    <fileSet>
-                      <directory>${basedir}/target</directory>
-                      <includes>
-                        <include>*.zip</include>
-                      </includes>
-                    </fileSet>
-                  </fileSets>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>

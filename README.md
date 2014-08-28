@@ -57,75 +57,50 @@ java -jar target/jf2014-executable.jar
 Now you can edit your homework and rerun the sample. The *pom.xml* instructs the *jf2014-executable.jar* to execute
 the *ee.ut.jf2014.Main* class by default. If you want to use some other class then you also need to update the *pom.xml*.
 
-Submitting your assignment automatically
+Submitting your assignment
 --------------------------
 
-We have set up the Maven project to submit the homework for you, automatically. It will ZIP up all files in your project
-folder and will send an e-mail to *jf@zeroturnaround.com* with the ZIP file as attachment. For sending, it can use either
-your @ut.ee e-mail account or GMail.
-
-It is really simple, just run one of the following commands in your project folder.
-
-##### In case of @ut.ee account:
+For your convenience, we have set up the Maven project to ZIP up all files in your project folder so it is easy
+for you to attach it to an e-mail and send it our way.
+All you need to do is to execute the following command in your project folder:
 
 ```
-mvn clean deploy -Djavax.net.ssl.trustStore=sk-ee.pks -Djavax.net.ssl.trustStorePassword=whatever -P ut
-```
-(the *trustStore* parameters are needed due to the fact that *mailhost.ut.ee* certificate is signed by
-*sk.ee* root certificate which is not included with Java)
-
-##### In case of @gmail.com account:
-
-```
-mvn clean deploy -P gmail
+mvn clean deploy
 ```
 
-It will ask you for your account username, password and homework topic.
+It will ask you for your full name, Student Book Number (also known as *matrikli number*), homework number and a comment (optional).
 
 Example:
 
 ```bash
-mvn clean deploy -Djavax.net.ssl.trustStore=sk-ee.pks -Djavax.net.ssl.trustStorePassword=whatever -P ut
+mvn clean deploy
 
 #...skipping building, testing and packaging output from Maven...
 
-[INFO] --- maven-antrun-plugin:1.7:run (get mail username and password) @ jf2014-hwX ---
+[INFO] --- maven-antrun-plugin:1.7:run (package homework ZIP) @ jf2014-hwX ---
 [INFO] Executing tasks
 
 main:
-Enter your @ut.ee account login:
-myusername
-Enter your @ut.ee account password:
-Homework topic:
-IO
+Your full name (e.g. John Smith):
+Jane Smith
+Your Student Book Number (matrikli number, e.g. B12345):
+B12345
+Homework number:
+1
+Comment:
+Java IO
+      [zip] Building zip: /Users/jane/Workspaces/JF/jf-skeleton/target/jf-howework-B12345-1.zip
+   [delete] Deleting: /Users/jane/Workspaces/JF/jf-skeleton/homework.properties
 [INFO] Executed tasks
-[INFO]
-[INFO] --- maven-postman-plugin:0.1.6:send-mail (send a mail via gmail) @ jf2014-hwX ---
-[INFO] add attachment /Users/neeme/Workspaces/ZT/jf-skeleton/target/jf-skeleton-project.zip
-[INFO] configure SSL connection for mail
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 18.111s
-[INFO] Finished at: Wed Aug 27 18:22:54 EEST 2014
-[INFO] Final Memory: 26M/125M
+[INFO] Total time: 45.028s
+[INFO] Finished at: Thu Aug 28 15:36:19 EEST 2014
+[INFO] Final Memory: 17M/99M
 [INFO] ------------------------------------------------------------------------
 ```
 
-*Note:* Your e-mail account and password are only used for sending the e-mail via respective SMTP server
-(encrypted channel) and not stored anywhere. Paranoid people can check out the source code of the Maven plugin here:
-https://code.google.com/p/fortysix/
-
-Submitting your assignment manually
---------------------------
-
-In case you do not like the automated option outlined above, you can also submit your homework manually.
-As we are still interested in your homework as *ZIP* archive, you will need to execute the following command
-in your project folder:
-
-```
-mvn clean package
-```
-
-Maven will build the ZIP file for you -- you can find the generated ZIP file in *target* folder with name 
-*jf-skeleton-project.zip*. Attach it to an e-mail and send it our way, to *jf@zeroturnaround.com*.
+After Maven has finished, you can find the generated ZIP file in *target* folder with name such as 
+*jf-homework-B12345-1.zip* (it contains your Student Book Number/matrikli number and homework number).
+Attach the ZIP to an e-mail and send it our way, to *jf@zeroturnaround.com*.
