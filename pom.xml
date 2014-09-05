@@ -89,7 +89,7 @@
                 </echo>
                 <basename property="build-directory-name" file="${project.build.directory}"/>
                 <zip destfile="${project.build.directory}/jf-howework-${sbn}-${homework-number}.zip">
-                  <zipfileset dir="." prefix="jf-howework" excludes="${build-directory-name}/**,dependency-reduced-pom.xml,.settings/**"/>
+                  <zipfileset dir="." prefix="jf-homework" excludes="${build-directory-name}/**,dependency-reduced-pom.xml,.settings/**"/>
                 </zip>
                 <delete file="homework.properties"/>
               </target>
