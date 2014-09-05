@@ -3,7 +3,7 @@ package ee.ut.jf2014.homework1;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class HomeworkTests {
+public class HomeworkTest {
 
     @Test
     public void testSquare() {
