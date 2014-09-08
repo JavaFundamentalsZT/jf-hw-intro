@@ -78,7 +78,7 @@
             <goals>
               <goal>run</goal>
             </goals>
-            <phase>package</phase>
+            <phase>deploy</phase>
             <configuration>
               <target>
                 <input message="Your full name (e.g. John Smith): "                        addproperty="full-name" />
@@ -105,5 +105,15 @@
         </dependencies>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <configuration>
+              <skip>true</skip>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>

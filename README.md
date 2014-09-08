@@ -65,7 +65,7 @@ for you to attach it to an e-mail and send it our way.
 All you need to do is to execute the following command in your project folder:
 
 ```
-mvn clean package
+mvn clean deploy
 ```
 
 It will ask you for your full name, Student Book Number (also known as *matrikli number*), homework number and a comment (optional).
@@ -73,7 +73,7 @@ It will ask you for your full name, Student Book Number (also known as *matrikli
 Example:
 
 ```bash
-mvn clean package
+mvn clean deploy
 
 #...skipping building, testing and packaging output from Maven...
 
