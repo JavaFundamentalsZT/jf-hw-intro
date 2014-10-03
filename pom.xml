@@ -88,7 +88,7 @@
                 <echo file="homework.properties" append="false">full-name=${full-name}${line.separator}sbn=${sbn}${line.separator}homework-number=${homework-number}${line.separator}comment=${comment}
                 </echo>
                 <basename property="build-directory-name" file="${project.build.directory}"/>
-                <zip destfile="${project.build.directory}/jf-howework-${sbn}-${homework-number}.zip">
+                <zip destfile="${project.build.directory}/jf-homework-${sbn}-${homework-number}.zip">
                   <zipfileset dir="." prefix="jf-homework" excludes="${build-directory-name}/**,dependency-reduced-pom.xml,.settings/**,.idea/**,*.iml,*.ipr,*.iws"/>
                 </zip>
                 <delete file="homework.properties"/>
