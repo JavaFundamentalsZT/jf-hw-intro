@@ -4,11 +4,36 @@ import java.math.BigInteger;
 
 public class FibCached {
 
+    //Implement this cache
     static class MyCache {
-        //TODO implment this class
+
+        public BigInteger get(Long n) {
+            return BigInteger.ZERO;
+        }
+
+        public void put(Long n, BigInteger result) {
+
+        }
+
+        public long collectedCount() {
+            return 0L;
+        }
+
+        public long putCount() {
+            return 0L;
+        }
+
+        public long getCount() {
+            return 0L;
+        }
+
+        public long hitCount() {
+            return 0L;
+        }
     }
-    
+
     static MyCache cache = new MyCache();
+    
     // this uses too much memory
     // static Map<Long, BigInteger> cache = new HashMap<Long, BigInteger>();
 
@@ -36,6 +61,7 @@ public class FibCached {
             // System.out.println(i + " " + result + " " + (end - start));
         }
         System.out.println("done");
+        
         // report statistics
         System.out.println("putCount=" + cache.putCount()); // number of calls to cache put method
         System.out.println("getCount=" + cache.getCount()); // number of calls to cache get method
