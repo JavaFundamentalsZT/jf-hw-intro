@@ -6,7 +6,7 @@ project with a dependency on [Apache Commons Lang](http://commons.apache.org/lan
 JAR file that can be executed via
 
 ```shell
-java -jar target/jf2014-executable.jar
+java -jar target/jf2016-executable.jar
 ```
 
 Getting Started
@@ -18,7 +18,7 @@ Once you have the archive we will use Maven to build the project.
 ```shell
 cd jf-skeleton
 mvn install
-java -jar target/jf2014-executable.jar
+java -jar target/jf2016-executable.jar
 ```
 
 This builds and executes the project. The current project will print the number 16 (just an example). When we check your
@@ -28,20 +28,18 @@ to start your application.
 Assignment structure
 --------------------------
 
-The project has a source folder *src/main/java/ee/ut/jf2014/*. The sample is based on the first homework and
-also specifies a subfolder called *hw1*. You should change this depending on your assignment.
+The project has a source folder *src/main/java/ee/ut/jf2016/*. The sample is based on the first homework and
+also specifies a subfolder called *hw1*. You should **change this** depending on your assignment.
 
-The project also has a folder for tests. See *test/java/ee/ut/jf2014*. The sample is based on the first homework
-and also specifies a folder *hw1*. You should change this depending on your assignment.
+The project also has a folder for tests. See *test/java/ee/ut/jf2016*. The sample is based on the first homework
+and also specifies a folder *hw1*. You should **change this** depending on your assignment.
 
 Using Eclipse
 -------------
 
-If you are an Eclipse user then you can import the project to your workspace. The project comes with the *.project*
-and *.classpath* files and is easy to import. *File* - *Import* - *Existing Maven Projects*.
+If you are an Eclipse user then you can import the project to your workspace. *File* - *Import* - *Existing Maven Projects*.
 
-To run the project in Eclipse you should ..... oh wait! You are already familiar with your IDE and I'm not
-supposed to explain this!
+To run the project in Eclipse you should ..... oh wait! You are already familiar with your IDE and I'm not supposed to explain this!
 
 Using the commandline
 ---------------------
@@ -51,18 +49,16 @@ Once you have downloaded the project and you want to run the main class you can 
 ```shell
 cd jf-skeleton
 mvn install
-java -jar target/jf2014-executable.jar
+java -jar target/jf2016-executable.jar
 ```
 
-Now you can edit your homework and rerun the sample. The *pom.xml* instructs the *jf2014-executable.jar* to execute
-the *ee.ut.jf2014.Main* class by default. If you want to use some other class then you also need to update the *pom.xml*.
+Now you can edit your homework and rerun the sample. The *pom.xml* instructs the *jf2016-executable.jar* to execute
+the *ee.ut.jf2016.Main* class by default. If you want to use some other class then you also need to update the *pom.xml*.
 
 Submitting your assignment
 --------------------------
 
-For your convenience, we have set up the Maven project to ZIP up all files in your project folder so it is easy
-for you to attach it to an e-mail and send it our way.
-All you need to do is to execute the following command in your project folder:
+For your convenience, we have set up the Maven project to ZIP up all files in your project folder so it is easy for you to attach it to an e-mail and send it our way. All you need to do is to execute the following command in your project folder:
 
 ```
 mvn clean deploy
@@ -77,7 +73,7 @@ mvn clean deploy
 
 #...skipping building, testing and packaging output from Maven...
 
-[INFO] --- maven-antrun-plugin:1.7:run (package homework ZIP) @ jf2014-hwX ---
+[INFO] --- maven-antrun-plugin:1.7:run (package homework ZIP) @ jf2016-hwX ---
 [INFO] Executing tasks
 
 main:

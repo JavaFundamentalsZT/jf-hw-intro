@@ -1,4 +1,4 @@
-package ee.ut.jf2014.homework9;
+package ee.ut.jf2016.homework9;
 
 import java.math.BigInteger;
 
@@ -33,7 +33,6 @@ public class FibCached {
     }
 
     static MyCache cache = new MyCache();
-    
     // this uses too much memory
     // static Map<Long, BigInteger> cache = new HashMap<Long, BigInteger>();
 
