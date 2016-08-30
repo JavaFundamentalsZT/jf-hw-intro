@@ -12,8 +12,7 @@ java -jar target/jf2016-executable.jar
 Getting Started
 ---------------
 
-Start off by downloading this repository ([quick ZIP archive link](https://github.com/toomasr/jf-skeleton/zipball/master)). 
-Once you have the archive we will use Maven to build the project.
+Start off by downloading this repository ([quick ZIP archive link](https://github.com/toomasr/jf-skeleton/zipball/master)) or cloning it via Git. Once you have the archive we will use Maven to build the project.
 
 ```shell
 cd jf-skeleton
