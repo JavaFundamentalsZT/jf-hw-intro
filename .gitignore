@@ -1,9 +1,6 @@
 .settings
 .project
 .classpath
-.mvn
-mvnw
-mvnw.cmd
 target
 /.idea
 /*.iml
