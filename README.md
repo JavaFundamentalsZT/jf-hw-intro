@@ -33,7 +33,7 @@ The `Main.main` method is the main entrypoint for the application, and calls the
 Building the project
 --------------------
 
-You can try to build the application now by running *(Windows users should use **mvnw.cmd** instead)*:
+You can try to build the application now by running *(Windows users should use `mvnw.cmd` instead)*:
 ```shell
 ./mvnw clean package
 ```
