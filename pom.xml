@@ -82,7 +82,7 @@
             <configuration>
               <target>
                 <input message="Your full name (e.g. John Smith): "                        addproperty="full-name" />
-                <input message="Your Student Book Number (matrikli number, e.g. B12345): " addproperty="sbn" />
+                <input message="Your Student Book Number (matrikli number, e.g. ABCD012345): " addproperty="sbn" />
                 <input message="Comment: "                                    addproperty="comment" />
                 <echo file="homework.properties" append="false">
                   full-name=${full-name}${line.separator}sbn=${sbn}${line.separator}homework-number=${project.name}${line.separator}comment=${comment}

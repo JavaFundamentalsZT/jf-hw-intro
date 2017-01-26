@@ -116,7 +116,7 @@ When you have gotten the test passing and the build to succeed, you can submit y
 ./mvnw clean deploy
 ```
 
-It will ask you for your **full name**, **Student Book Number** (also known as *matrikli number*) and a **comment** *(optional)*.
+It will ask you for your **full name**, **Student Code** (also known as *matrikli number*) and a **comment** *(optional)*.
 
 Example:
 
@@ -131,11 +131,11 @@ Example:
 main:
 Your full name (e.g. John Smith):
 Jane Smith
-Your Student Book Number (matrikli number, e.g. B12345):
-B12345
+Your Student Code (matrikli number, e.g. ABCD012345):
+ABCD012345
 Comment:
 Java IO
-      [zip] Building zip: /Users/lanza/Projects/java/jf/jf-hw-intro/target/jf-howework1-B12345.zip
+      [zip] Building zip: /Users/lanza/Projects/java/jf/jf-hw-intro/target/jf-howework1-ABCD012345.zip
    [delete] Deleting: /Users/lanza/Projects/java/jf/jf-hw-intro/homework.properties
 [INFO] Executed tasks
 [INFO] ------------------------------------------------------------------------
@@ -147,10 +147,10 @@ Java IO
 [INFO] ------------------------------------------------------------------------
 ```
 
-After Maven has finished and the build was successful, you can find a **ZIP file** at **target/jf-homework1-B12345.zip** *(the name of the zip file contains the homework number and your Student Book Number/matrikli number)*.
+After Maven has finished and the build was successful, you can find a **ZIP file** at **target/jf-homework1-ABCD012345.zip** *(the name of the zip file contains the homework number and your Student Code/matrikli number)*.
 
 This ZIP file contains all the files that we need to check your homework.
-The only thing left to do now is to send the ZIP file as an attachment to an e-mail with subject **"Homework 1 - *your Student Book Number/maktrikli number*"** to *jf@zeroturnaround.com*.
+The only thing left to do now is to send the ZIP file as an attachment to an e-mail with subject **"Homework 1 - *your Student Code/maktrikli number*"** to *jf@zeroturnaround.com*.
 
 
 Various tips
