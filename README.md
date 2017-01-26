@@ -91,7 +91,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 ```
 
-Once you have gotten that one failing test to pass, you may also want to experiment with adding more tests to the **HomeworkTest** class for other string pairs to
+Once you have gotten that one failing test to pass, you may also want to experiment with adding more tests to the `HomeworkTest` class for other string pairs to
 verify your implementation works correctly for different kinds of inputs.
 
 NB! Please note that just returning **"JavaFundamentals"** from the `getCommonSuffix` method - while arguably very clever - will not be accepted as a correct solution. :)
@@ -99,7 +99,7 @@ NB! Please note that just returning **"JavaFundamentals"** from the `getCommonSu
 Running the application
 -----------------------
 
-Once you have successfully built the application, a jar file is generated to `target/jf-homework.jar`. You can now try running the application's `main` method by calling:
+Once you have successfully built the application, a jar file is generated to `target/jf-homework1.jar`. You can now try running the application's `main` method by calling:
 ```shell
 java -jar target/jf-homework1.jar firstString secondString
 ```
@@ -150,7 +150,7 @@ Java IO
 After Maven has finished and the build was successful, you can find a **ZIP file** at **target/jf-homework1-B12345.zip** *(the name of the zip file contains the homework number and your Student Book Number/matrikli number)*.
 
 This ZIP file contains all the files that we need to check your homework.
-The only thing left to do now is to send the ZIP file as an attachment to an e-mail with subject **"Homework 1 - *your Student Book Number/maktrikli number"*** to *jf@zeroturnaround.com*.
+The only thing left to do now is to send the ZIP file as an attachment to an e-mail with subject **"Homework 1 - *your Student Book Number/maktrikli number*"** to *jf@zeroturnaround.com*.
 
 
 Various tips
