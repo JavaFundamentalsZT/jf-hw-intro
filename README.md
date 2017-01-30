@@ -13,7 +13,7 @@ Start off by cloning this Git repository by running
 ```shell
 git clone https://github.com/JavaFundamentalsZT/jf-hw-intro
 ```
-or by downloading and extracting the [homework zip](https://github.com/svenlaanela/jf-hw-intro/zipball/master).
+or by downloading and extracting the [homework zip](https://github.com/JavaFundamentalsZT/jf-hw-intro-zip/raw/master/jf-hw-intro.zip).
 
 Assignment structure
 --------------------------
